@@ -47,6 +47,7 @@ async function obterFasesDoUsuario(email) {
 		usuario: {
 			nome: usuario.nome,
 			email: usuario.email,
+			fotoUrl: usuario.fotoUrl || "",
 			ultimaFaseConcluida,
 		},
 		fases: fasesComStatus,

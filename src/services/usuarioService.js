@@ -23,9 +23,10 @@ async function buscarUsuarioPorEmail(email) {
 	return { id: documento.id, ...documento.data() };
 }
 
-async function criarOuAtualizarUsuario({ nome, email }) {
+async function criarOuAtualizarUsuario({ nome, email, fotoUrl }) {
 	const emailNormalizado = normalizarEmail(email);
 	const nomeLimpo = String(nome || "").trim();
+	const fotoUrlLimpa = String(fotoUrl || "").trim();
 
 	if (!nomeLimpo || !emailNormalizado) {
 		throw new Error("Nome e e-mail são obrigatórios.");
@@ -38,6 +39,7 @@ async function criarOuAtualizarUsuario({ nome, email }) {
 	const payload = {
 		nome: nomeLimpo,
 		email: emailNormalizado,
+		fotoUrl: fotoUrlLimpa,
 		updatedAt: admin.firestore.FieldValue.serverTimestamp(),
 	};
 

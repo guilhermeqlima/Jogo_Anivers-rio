@@ -79,6 +79,7 @@ botaoGoogle.addEventListener("click", async () => {
 		const payload = {
 			nome: usuarioGoogle.displayName || "Usuário",
 			email: usuarioGoogle.email,
+			fotoUrl: usuarioGoogle.photoURL || "",
 		};
 		const resposta = await window.fetchPost("/api/usuarios/login", payload);
 

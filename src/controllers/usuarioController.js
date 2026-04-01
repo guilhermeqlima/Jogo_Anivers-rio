@@ -5,8 +5,8 @@ const {
 
 async function loginComGoogle(req, res, next) {
 	try {
-		const { nome, email } = req.body;
-		const usuario = await criarOuAtualizarUsuario({ nome, email });
+		const { nome, email, fotoUrl } = req.body;
+		const usuario = await criarOuAtualizarUsuario({ nome, email, fotoUrl });
 
 		res.json({ usuario });
 	} catch (erro) {

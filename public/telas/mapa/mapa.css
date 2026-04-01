@@ -40,6 +40,18 @@ body {
     justify-content: center;
 }
 
+#avatar.avatar-com-foto {
+    background: #ffffff;
+    overflow: hidden;
+}
+
+#avatar.avatar-com-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 #containerMapa {
     margin-top: 20px;
     padding: 15px;

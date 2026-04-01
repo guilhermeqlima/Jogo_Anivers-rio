@@ -72,8 +72,18 @@ function preencherDadosDoPerfil(usuario, faseAtualAtual) {
     const avatar = document.getElementById("avatar");
     const faseUsuario = document.getElementById("faseUsuario");
 
-    nomeUsuario.innerText = usuario?.nome || usuarioLogado.nome || "Usuário";
-    avatar.innerText = nomeUsuario.innerText.slice(0, 2).toUpperCase();
+    const nome = usuario?.nome || usuarioLogado.nome || "Usuário";
+    const fotoUrl = usuario?.fotoUrl || usuarioLogado?.fotoUrl || "";
+
+    nomeUsuario.innerText = nome;
+    avatar.classList.toggle("avatar-com-foto", Boolean(fotoUrl));
+
+    if (fotoUrl) {
+        avatar.innerHTML = `<img src="${fotoUrl}" alt="Foto de ${nome}" referrerpolicy="no-referrer">`;
+    } else {
+        avatar.textContent = nome.slice(0, 2).toUpperCase();
+    }
+
     faseUsuario.innerText = `Fase ${faseAtualAtual} de ${fasesCarregadas.length}`;
 }
 
