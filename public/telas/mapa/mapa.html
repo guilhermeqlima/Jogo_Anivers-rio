@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa do Tesouro</title>
+
+    <link rel="stylesheet" href="mapa.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../assets/utils/funcoesPadroesTelas.js"></script>
+    <script src="../../assets/config/apiBaseUrl.js"></script>
+    <script src="../../assets/utils/requisicaoFetchPadrao.js"></script>
+</head>
+
+<body>
+
+    <div id="pagina">
+
+        <header id="topo">
+
+            <div id="perfil">
+
+                <div id="avatar">GU</div>
+
+                <div>
+                    <div id="nomeUsuario">Guilherme</div>
+                    <div id="faseUsuario">Fase 1 de 6</div>
+                </div>
+
+            </div>
+
+            <button id="botaoSair">Sair</button>
+
+        </header>
+
+        <div id="contador-box">
+            <div id="titulo-contador">
+                ⏳ Tempo restante para a <span id="faseAtualTexto">Fase 1</span>
+            </div>
+
+            <div id="contador-cards">
+                <div class="card-tempo">
+                    <span id="dias">00</span>
+                    <p>Dias</p>
+                </div>
+                <div class="card-tempo">
+                    <span id="horas">00</span>
+                    <p>Horas</p>
+                </div>
+                <div class="card-tempo">
+                    <span id="minutos">00</span>
+                    <p>Min</p>
+                </div>
+                <div class="card-tempo">
+                    <span id="segundos">00</span>
+                    <p>Seg</p>
+                </div>
+            </div>
+        </div>
+
+        <main id="containerMapa">
+            <div id="containerTitle">
+                <div>
+                    <img src="../../assets/imagens/image-removebg-preview.png" alt="">
+                    <h1> Mapa do Tesouro</h1>
+                </div>
+                
+                <p>Siga o caminho e desbloqueie todas as missões!</p>
+
+                <div id="dataAniversario">Fase 6: Aniversário em 11/04/2026</div>
+
+                <div id="legenda">
+                    <div class="item-legenda legenda-concluida">
+                        <span class="icone">✅</span>
+                        <span>Fase concluída</span>
+                    </div>
+
+                    <div class="item-legenda legenda-disponivel">
+                        <span class="icone">🎁</span>
+                        <span>Fase disponível</span>
+                    </div>
+
+                    <div class="item-legenda legenda-bloqueada-sem-tempo">
+                        <span class="icone">🔒</span>
+                        <span>Bloqueada (ordem)</span>
+                    </div>
+
+                    <div class="item-legenda legenda-bloqueada-tempo">
+                        <span class="icone">⏳</span>
+                        <span>Bloqueada por tempo</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="mapa">
+
+                
+            </div>
+
+        </main>
+        
+      
+    </div>
+
+    <script src="mapa.js"></script>
+
+</body>
+
+</html>

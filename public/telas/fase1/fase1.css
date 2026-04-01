@@ -1,0 +1,290 @@
+body {
+
+    margin: 0;
+    font-family: Arial;
+    background: #e7d9e5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+}
+
+/* botão voltar */
+
+#btn-voltar {
+
+    margin-bottom: 20px;
+    align-self: flex-start;
+
+    background: white;
+    border: none;
+
+    padding: 10px 16px;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+/* container principal */
+
+#container {
+
+    width: 100%;
+    max-width: 700px;
+    background: #f6f3f5;
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    box-sizing: border-box;
+
+}
+
+/* cabeçalho */
+
+#cabecalho {
+
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+
+#icone {
+
+    font-size: 40px;
+    margin-bottom: 10px;
+
+}
+
+#cabecalho h1 {
+
+    color: #e60073;
+    margin: 10px 0;
+
+    font-size: 28px;
+
+}
+
+#cabecalho p {
+
+    color: #666;
+
+}
+
+/* área do vídeo */
+
+#area-video {
+
+    background: linear-gradient(45deg, #d8b4fe, #f9a8d4);
+
+    padding: 20px;
+    border-radius: 15px;
+
+    margin-bottom: 30px;
+
+}
+
+#video-container {
+
+    background: #efeaf0;
+
+    border-radius: 12px;
+    padding: 15px;
+
+    text-align: center;
+
+}
+
+video {
+
+    width: 100%;
+    max-height: 350px;
+
+    border-radius: 10px;
+
+}
+
+/* área senha */
+
+#area-senha {
+
+    background: #f0e7ec;
+
+    padding: 20px;
+    border-radius: 15px;
+
+}
+
+#area-senha h2 {
+
+    margin-top: 0;
+
+}
+
+#campo-senha {
+
+    display: flex;
+    margin-top: 10px;
+
+}
+
+#input-senha {
+
+    flex: 1;
+    padding: 12px;
+
+    border-radius: 8px 0 0 8px;
+    border: 1px solid #ddd;
+
+    font-size: 16px;
+
+}
+
+#mostrarSenha {
+
+    border: 1px solid #ddd;
+    border-left: none;
+
+    background: white;
+
+    padding: 0 15px;
+
+    cursor: pointer;
+
+    border-radius: 0 8px 8px 0;
+
+    font-size: 16px;
+
+}
+
+/* botão */
+
+#btn-desvendar {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    background: linear-gradient(90deg, #ff3c8c, #ff1e56);
+
+    border: none;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+    font-size: 16px;
+
+    cursor: pointer;
+
+}
+
+/* dica */
+
+#dica {
+
+    margin-top: 15px;
+
+    background: #eee;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    text-align: center;
+
+}
+
+
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:600px) {
+
+    #container {
+
+        padding: 25px 18px;
+
+    }
+
+    #cabecalho h1 {
+
+        font-size: 22px;
+
+    }
+
+    #icone {
+
+        font-size: 32px;
+
+    }
+
+    video {
+
+        max-height: 220px;
+
+    }
+
+    #btn-voltar {
+
+        font-size: 13px;
+
+    }
+
+    #input-senha {
+
+        font-size: 15px;
+
+    }
+
+    #btn-desvendar {
+
+        padding: 13px;
+
+    }
+
+}
+
+
+
+@media(max-width:380px) {
+
+    #container {
+
+        padding: 20px 15px;
+
+    }
+
+    #cabecalho h1 {
+
+        font-size: 20px;
+
+    }
+
+    video {
+
+        max-height: 180px;
+
+    }
+
+}

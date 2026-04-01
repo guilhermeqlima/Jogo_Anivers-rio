@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fase 1</title>
+
+  <link rel="stylesheet" href="fase1.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <script src="../../assets/utils/funcoesPadroesTelas.js"></script>
+  <script src="../../assets/config/apiBaseUrl.js"></script>
+  <script src="../../assets/utils/requisicaoFetchPadrao.js"></script>
+</head>
+
+<body>
+
+  <button id="btn-voltar" onclick="voltarMapa()">Voltar ao Mapa</button>
+
+  <div id="container">
+
+    <div id="cabecalho">
+
+      <div id="icone">🎬</div>
+
+      <h1>Fase 1: Introdução</h1>
+
+      <p>Assista ao vídeo e descubra a senha secreta!</p>
+
+    </div>
+
+
+    <div id="area-video">
+
+      <div id="video-container">
+
+        <video id="video-missao" controls>
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+          Seu navegador não suporta vídeo.
+        </video>
+
+      </div>
+
+    </div>
+
+
+    <div id="area-senha">
+
+      <h2>🔓 Desvendar Missão</h2>
+
+      <label>Digite a senha secreta:</label>
+
+      <div id="campo-senha">
+
+        <input type="password" id="input-senha" placeholder="Senha...">
+
+        <button id="mostrarSenha">👁</button>
+
+      </div>
+
+      <button id="btn-desvendar">
+        Desvendar Missão 🔓
+      </button>
+
+      <div id="dica">
+        💡 Dica: A resposta está no vídeo!
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="fase1.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fase 4 - Quiz de Livros</title>
+
+  <link rel="stylesheet" href="questionario.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../../assets/utils/funcoesPadroesTelas.js"></script>
+  <script src="../../assets/config/apiBaseUrl.js"></script>
+  <script src="../../assets/utils/requisicaoFetchPadrao.js"></script>
+</head>
+
+<body>
+
+  <button id="btn-voltar" onclick="voltarMapa()">Voltar ao Mapa</button>
+
+  <main id="container">
+
+    <header id="cabecalho">
+      <h1>Fase 4 - Entre Linhas e Entre Nos</h1>
+      <p>Responda corretamente para avancar</p>
+    </header>
+
+    <section id="status-quiz">
+      <div id="linha-status">
+        <span id="texto-progresso">Pergunta 1 de 6</span>
+        <span id="percentual-progresso">17%</span>
+      </div>
+
+      <div id="barra-container" aria-hidden="true">
+        <div id="barra-progresso"></div>
+      </div>
+    </section>
+
+    <section id="card-pergunta">
+      <div id="icone">📖</div>
+      <h2 id="pergunta">Pergunta aqui...</h2>
+      <div id="opcoes"></div>
+    </section>
+
+    <footer id="area-acao">
+      <p id="status"></p>
+      <div id="botoes-navegacao">
+        <button id="btn-anterior" type="button">Anterior</button>
+        <button id="btn-proxima" type="button">Proxima</button>
+      </div>
+    </footer>
+  </main>
+
+  <script src="questionario.js"></script>
+
+</body>
+
+</html>

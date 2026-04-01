@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fase 5 - Palavras Cruzadas</title>
+
+  <link rel="stylesheet" href="fase5.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../../assets/utils/funcoesPadroesTelas.js"></script>
+  <script src="../../assets/config/apiBaseUrl.js"></script>
+  <script src="../../assets/utils/requisicaoFetchPadrao.js"></script>
+</head>
+
+<body>
+
+  <div class="decoracoes" aria-hidden="true">
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+  </div>
+
+  <button id="btn-voltar" onclick="voltarMapa()">Voltar ao Mapa</button>
+
+  <div id="container">
+
+    <div id="cabecalho">
+      <h1>Fase 5: Palavras Cruzadas da sua vida </h1>
+    </div>
+
+    <div id="progresso-box">
+      <div id="texto-progresso">Progresso: 0 / 17 palavras</div>
+      <div id="percentual-progresso">0%</div>
+      <div id="barra-externa">
+        <div id="barra-interna"></div>
+      </div>
+    </div>
+
+    <div id="resposta-rapida">
+      <input id="input-palavra" type="text" placeholder="Digite uma palavra e tente acertar" autocomplete="off">
+      <button id="btn-validar-palavra" type="button">Validar palavra</button>
+    </div>
+    <p id="orientacao-resposta">Clique em uma dica para ativar a palavra que voce quer resolver.</p>
+
+    <div id="conteudo-jogo">
+      <section id="painel-tabuleiro">
+        <div id="grade" aria-label="Grade de palavras cruzadas"></div>
+      </section>
+
+      <aside id="painel-dicas">
+        <h2>→ Horizontais</h2>
+        <div id="lista-horizontais" class="lista-dicas"></div>
+
+        <h2>↓ Verticais</h2>
+        <div id="lista-verticais" class="lista-dicas"></div>
+      </aside>
+    </div>
+
+    <div id="area-acao">
+      <button id="btn-concluir" disabled>🔒 Complete todas as palavras</button>
+      <p id="status"></p>
+    </div>
+  </div>
+
+  <script src="fase5.js"></script>
+
+</body>
+
+</html>

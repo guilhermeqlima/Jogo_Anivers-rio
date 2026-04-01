@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fase 2 - Quiz</title>
+
+  <link rel="stylesheet" href="css/quiz.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../../assets/utils/funcoesPadroesTelas.js"></script>
+  <script src="../../assets/config/apiBaseUrl.js"></script>
+  <script src="../../assets/utils/requisicaoFetchPadrao.js"></script>
+</head>
+
+<body>
+
+  <button id="btn-voltar" onclick="voltarMapa()">Voltar ao Mapa</button>
+
+  <div id="container">
+
+    <div id="cabecalho">
+      <div id="icone">📚✨</div>
+      <h1>Quiz: A Bela e a Fera</h1>
+      <p>Responda corretamente para avançar 💛</p>
+    </div>
+
+    <div id="area-pergunta">
+
+      <h2 id="pergunta">Pergunta aqui...</h2>
+
+      <div id="opcoes">
+        <button class="opcao">Opção 1</button>
+        <button class="opcao">Opção 2</button>
+        <button class="opcao">Opção 3</button>
+        <button class="opcao">Opção 4</button>
+      </div>
+
+    </div>
+
+ <div id="area-status">
+
+  <div id="barra-container">
+    <div id="barra-progresso"></div>
+  </div>
+
+  <div id="progresso">
+    Respondidas: <span id="pontuacao">0</span>/10
+  </div>
+
+  <div id="botoes-navegacao">
+    <button id="btn-anterior">⬅️ Anterior</button>
+    <button id="btn-proxima">Próxima ➡️</button>
+  </div>
+
+</div>
+
+  </div>
+
+  <script src="js/quiz.js"></script>
+
+</body>
+
+</html>

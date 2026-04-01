@@ -1,0 +1,265 @@
+body {
+
+    margin: 0;
+    font-family: Arial;
+  
+    background: linear-gradient(90deg, #b388eb, #fbc02d);
+
+  
+    background: linear-gradient(45deg, #c084fc, #1a237e);
+
+
+    background: linear-gradient(90deg, #bb86fc, #ffd54f);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+}
+
+/* botão voltar */
+
+#btn-voltar {
+
+    margin-bottom: 20px;
+    align-self: flex-start;
+
+    background: white;
+    border: none;
+
+    padding: 10px 16px;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+/* container */
+
+#container {
+
+    width: 100%;
+    max-width: 700px;
+    background: #f6f3f5;
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+}
+
+/* cabeçalho */
+
+#cabecalho {
+
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+
+#icone {
+
+    font-size: 40px;
+    margin-bottom: 10px;
+
+}
+
+#cabecalho h1 {
+
+    color: #e60073;
+    margin: 10px 0;
+
+}
+
+#cabecalho p {
+
+    color: #666;
+
+}
+
+/* pergunta */
+
+#area-pergunta {
+
+    background: linear-gradient(45deg, #d8b4fe, #f9a8d4);
+
+    padding: 20px;
+    border-radius: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+#pergunta {
+
+    margin-top: 0;
+    text-align: center;
+
+}
+
+/* opções */
+
+#opcoes {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-top: 15px;
+
+}
+
+.opcao {
+
+    padding: 12px;
+
+    border-radius: 10px;
+    border: none;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+
+}
+
+.opcao:hover {
+
+    background: #ffe4ef;
+
+}
+
+.selecionada {
+
+    background: #ffd4ea;
+    border: 2px solid #ff3c8c;
+
+}
+
+/* estados */
+
+.correta {
+
+    background: #4CAF50 !important;
+    color: white;
+
+}
+
+.errada {
+
+    background: #e53935 !important;
+    color: white;
+
+}
+
+/* área status */
+
+#area-status {
+
+    background: #f0e7ec;
+
+    padding: 20px;
+    border-radius: 15px;
+
+    text-align: center;
+
+}
+
+#progresso {
+
+    margin-bottom: 15px;
+    font-weight: bold;
+
+}
+
+/* botão */
+/* container dos botões */
+#botoes-navegacao {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* estilo geral dos botões */
+#botoes-navegacao button {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+
+    font-weight: bold;
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+/* botão anterior */
+#btn-anterior {
+    background: #ccc;
+    color: white;
+}
+
+#btn-anterior:hover {
+    background: #b3b3b3;
+}
+
+/* botão próxima */
+#btn-proxima {
+    background: linear-gradient(90deg, #ff3c8c, #ff1e56);
+    color: white;
+}
+
+#btn-proxima:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(255, 30, 86, 0.4);
+}
+/* barra de progresso */
+#barra-container {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+#barra-progresso {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff3c8c, #ff1e56);
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    #container {
+
+        padding: 25px 18px;
+
+    }
+
+    #cabecalho h1 {
+
+        font-size: 22px;
+
+    }
+
+}

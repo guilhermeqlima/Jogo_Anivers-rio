@@ -1,0 +1,263 @@
+body {
+
+    margin: 0;
+    font-family: Arial;
+  
+    background: linear-gradient(90deg, #b388eb, #fbc02d);
+
+  
+    background: linear-gradient(45deg, #c084fc, #1a237e);
+
+
+    background: linear-gradient(90deg, #bb86fc, #ffd54f);
+
+
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 15px;
+    box-sizing: border-box;
+
+}
+
+/* botão voltar */
+
+#btn-voltar {
+
+    margin-bottom: 20px;
+    align-self: flex-start;
+
+    background: white;
+    border: none;
+
+    padding: 10px 16px;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+/* container principal */
+
+#container {
+
+    width: 100%;
+    max-width: 700px;
+    background: #f6f3f5;
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    box-sizing: border-box;
+
+}
+
+/* cabeçalho */
+
+#cabecalho {
+
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+
+#icone {
+
+    font-size: 40px;
+    margin-bottom: 10px;
+
+}
+
+#cabecalho h1 {
+
+    color: #e60073;
+    margin: 10px 0;
+
+    font-size: 28px;
+
+}
+
+#cabecalho p {
+
+    color: #666;
+
+}
+
+/* área principal */
+
+#area-video {
+
+    background: linear-gradient(45deg, #d8b4fe, #f9a8d4);
+
+    padding: 20px;
+    border-radius: 15px;
+
+    margin-bottom: 30px;
+
+}
+
+#video-container {
+
+    background: #efeaf0;
+
+    border-radius: 12px;
+    padding: 15px;
+
+}
+
+/* texto */
+
+#video-container p {
+
+    margin-top: 0;
+    color: #444;
+    line-height: 1.5;
+
+}
+
+#video-container label {
+
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+    font-weight: bold;
+
+}
+
+#motivo-fase {
+
+    width: 100%;
+    padding: 12px;
+
+    border-radius: 8px;
+    border: 1px solid #ddd;
+
+    font-size: 14px;
+
+    resize: none;
+
+}
+
+/* área botão */
+
+#area-senha {
+
+    background: #f0e7ec;
+
+    padding: 20px;
+    border-radius: 15px;
+
+    text-align: center;
+
+}
+
+#area-senha h2 {
+
+    margin-top: 0;
+
+}
+
+/* botão padrão igual fase 1 */
+
+#btn-desvendar {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    background: linear-gradient(90deg, #ff3c8c, #ff1e56);
+
+    border: none;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+    font-size: 16px;
+
+    cursor: pointer;
+
+}
+
+/* dica */
+
+#dica {
+
+    margin-top: 15px;
+
+    background: #eee;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    text-align: center;
+
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:900px) {
+
+    #container {
+
+        padding: 25px 18px;
+
+
+    }
+
+    #cabecalho h1 {
+
+        font-size: 22px;
+
+    }
+
+    #icone {
+
+        font-size: 32px;
+
+    }
+
+}
+
+@media(max-width:380px) {
+
+    body {
+        background: url(../../../assets/imagens/ChatGPT\ Image\ 18\ de\ mar.\ de\ 2026\,\ 10_25_31.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+    }
+
+    #container {
+
+        padding: 20px 15px;
+
+    }
+
+    #cabecalho h1 {
+
+        font-size: 20px;
+
+    }
+
+}

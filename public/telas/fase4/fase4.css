@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: Arial;
+  background: linear-gradient(180deg, #f1e2ad, #e8cc6f);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+#btn-voltar {
+  margin-bottom: 20px;
+  align-self: flex-start;
+  background: #fff9ec;
+  border: 1px solid rgba(188, 151, 87, 0.35);
+  color: #7b4a1e;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+#container {
+  width: 100%;
+  max-width: 760px;
+  background: rgba(255, 246, 220, 0.62);
+  border: 1px solid rgba(190, 147, 79, 0.3);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(104, 72, 21, 0.12);
+  box-sizing: border-box;
+}
+
+#cabecalho {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#icone {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+#cabecalho h1 {
+  color: #7a3413;
+  margin: 10px 0;
+  font-size: 34px;
+}
+
+#cabecalho p {
+  color: #8f5a29;
+  font-size: 18px;
+}
+
+#area-introducao {
+  background: linear-gradient(180deg, #f6e9bf, #f5dd99);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(188, 141, 69, 0.26);
+}
+
+#texto-introducao p {
+  margin: 0 0 10px;
+  color: #694222;
+  line-height: 1.55;
+  font-size: 17px;
+}
+
+#texto-introducao p:last-child {
+  margin-bottom: 0;
+}
+
+#area-acao {
+  background: rgba(243, 226, 177, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+#area-acao h2 {
+  margin: 0;
+  color: #7a3512;
+}
+
+#btn-iniciar {
+  width: 100%;
+  margin-top: 18px;
+  background: linear-gradient(90deg, #c77412, #df9131);
+  border: none;
+  color: #fff8ea;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#btn-iniciar:hover {
+  transform: translateY(-1px);
+}
+
+#dica {
+  margin-top: 15px;
+  background: #f7eed4;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  color: #7a512a;
+}
+
+@media (max-width: 900px) {
+  #container {
+    padding: 25px 18px;
+  }
+
+  #cabecalho h1 {
+    font-size: 26px;
+  }
+
+  #icone {
+    font-size: 32px;
+  }
+}

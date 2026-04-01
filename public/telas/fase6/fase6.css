@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(90deg, #bb86fc, #ffd54f);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+#btn-voltar {
+  margin-bottom: 20px;
+  align-self: flex-start;
+  background: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+#container {
+  width: 100%;
+  max-width: 700px;
+  background: #f6f3f5;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+#cabecalho {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#icone {
+  font-size: 40px;
+}
+
+#cabecalho h1 {
+  color: #e60073;
+  margin: 10px 0;
+}
+
+#cabecalho p {
+  color: #666;
+}
+
+#area-conteudo {
+  background: linear-gradient(45deg, #d8b4fe, #f9a8d4);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+#area-acao {
+  background: #f0e7ec;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+#btn-concluir {
+  width: 100%;
+  margin-top: 8px;
+  background: linear-gradient(90deg, #ff3c8c, #ff1e56);
+  border: none;
+  color: white;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#status {
+  min-height: 20px;
+  margin-top: 12px;
+  color: #444;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  #container {
+    padding: 25px 18px;
+  }
+}
