@@ -59,7 +59,7 @@ const palavrasCruzadas = [
   {
     palavra: "CLARICE",
     direcao: "vertical",
-    inicio: { linha: 3, coluna: 10 },
+    inicio: { linha: 3, coluna: 9 },
     dica: "O primeiro nome da mãe de todas as mulheres",
     numero: 9,
   },
