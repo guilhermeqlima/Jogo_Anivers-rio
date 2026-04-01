@@ -149,6 +149,90 @@ body {
 
 }
 
+.mapa-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    padding: 20px;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(255, 46, 122, 0.12) 0%, rgba(255, 46, 122, 0.02) 55%, transparent 75%),
+        linear-gradient(180deg, #fff8fc 0%, #fff1f7 45%, #ffe8f2 100%);
+    z-index: 6;
+}
+
+.mapa-loading h3 {
+    margin: 0;
+    font-size: clamp(19px, 2.2vw, 28px);
+    color: #b20f4d;
+}
+
+.mapa-loading p {
+    margin: 0;
+    color: #8b3a5e;
+    font-size: 15px;
+    max-width: 360px;
+}
+
+.mapa-loading-bussola {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 46, 122, 0.25);
+    border-top-color: #ff2e7a;
+    animation: girarMapaLoading 1s linear infinite;
+    box-shadow: 0 0 0 8px rgba(255, 46, 122, 0.08);
+}
+
+.mapa-loading-trilha {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+.mapa-loading-trilha span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff2e7a;
+    animation: pulsarTrilha 1.2s ease-in-out infinite;
+}
+
+.mapa-loading-trilha span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.mapa-loading-trilha span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes girarMapaLoading {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulsarTrilha {
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-4px);
+    }
+}
+
 .decoracao-mapa {
     position: absolute;
     z-index: 2;

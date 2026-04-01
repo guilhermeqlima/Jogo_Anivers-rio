@@ -12,6 +12,7 @@ window.onload = async function () {
     }
 
     configurarBotaoSair();
+    renderizarMapaCarregando();
 
     await carregarFases();
 
@@ -20,6 +21,25 @@ window.onload = async function () {
         iniciarContador();
     }, 100);
 };
+
+function renderizarMapaCarregando() {
+    const mapa = document.getElementById("mapa");
+
+    if (!mapa) return;
+
+    mapa.innerHTML = `
+        <div class="mapa-loading" role="status" aria-live="polite" aria-label="Carregando fases do mapa">
+            <div class="mapa-loading-bussola" aria-hidden="true"></div>
+            <h3>Carregando suas fases...</h3>
+            <p>Preparando o mapa com as informacoes mais recentes.</p>
+            <div class="mapa-loading-trilha" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    `;
+}
 
 function configurarBotaoSair() {
     const botaoSair = document.getElementById("botaoSair");
