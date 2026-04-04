@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bem-vinda - Primeiro Acesso</title>
+
+  <link rel="stylesheet" href="primeiro-acesso.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../../assets/utils/funcoesPadroesTelas.js"></script>
+  <script src="../../assets/config/apiBaseUrl.js"></script>
+  <script src="../../assets/utils/requisicaoFetchPadrao.js"></script>
+</head>
+
+<body>
+  <div class="fundo-decorativo" aria-hidden="true"></div>
+
+  <main class="pagina-primeiro-acesso">
+    <section class="popup-video" role="dialog" aria-labelledby="tituloPrimeiroAcesso" aria-modal="true">
+      <header class="popup-cabecalho">
+        <span class="selo">PRIMEIRO ACESSO</span>
+        <h1 id="tituloPrimeiroAcesso">Uma surpresa antes do mapa</h1>
+        <p>Assista este video especial para comecar a jornada com o coracao cheio.</p>
+      </header>
+
+      <div class="moldura-video">
+        <video id="videoPrimeiroAcesso" class="video-player" controls playsinline>
+          <source src="../../assets/videos/primeiro-acesso.mp4" type="video/mp4">
+          Seu navegador nao suporta video em HTML5.
+        </video>
+        <p id="avisoVideo" class="aviso-video" hidden>
+          Nao foi possivel carregar o video. Voce pode continuar para o mapa.
+        </p>
+      </div>
+
+      <footer class="popup-acoes">
+        <button id="botaoContinuar" type="button">Entrar no Mapa</button>
+        <p id="statusPrimeiroAcesso" class="status"></p>
+      </footer>
+    </section>
+  </main>
+
+  <script src="primeiro-acesso.js"></script>
+</body>
+
+</html>

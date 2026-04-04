@@ -1,6 +1,7 @@
 const {
 	criarOuAtualizarUsuario,
 	buscarUsuarioPorEmail,
+	concluirPrimeiroAcesso,
 } = require("../services/usuarioService");
 
 async function loginComGoogle(req, res, next) {
@@ -31,7 +32,19 @@ async function obterUsuario(req, res, next) {
 	}
 }
 
+async function concluirPrimeiroAcessoDoUsuario(req, res, next) {
+	try {
+		const email = req.params.email;
+		const usuario = await concluirPrimeiroAcesso(email);
+		res.json({ usuario });
+	} catch (erro) {
+		console.error(`❌ [USUARIO] Erro ao concluir primeiro acesso:`, erro);
+		next(erro);
+	}
+}
+
 module.exports = {
 	loginComGoogle,
 	obterUsuario,
+	concluirPrimeiroAcessoDoUsuario,
 };

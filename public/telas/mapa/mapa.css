@@ -471,6 +471,17 @@ body {
     background: #fff8f0;
     border: 1px solid rgba(0, 0, 0, 0.12);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+    transition: filter 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.fase-medalhas-orbita .medalha-orbita.medalha-orbita--coletada {
+    filter: none;
+    opacity: 1;
+}
+
+.fase-medalhas-orbita .medalha-orbita.medalha-orbita--nao-coletada {
+    filter: grayscale(1);
+    opacity: 0.62;
 }
 
 .fase-medalhas-orbita .medalha-orbita[data-posicao="1"] {

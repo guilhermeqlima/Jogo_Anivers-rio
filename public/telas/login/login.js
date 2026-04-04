@@ -31,7 +31,10 @@ function inicializarLogin() {
 	const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 	
 	if (usuarioLogado && usuarioLogado.email) {
-		window.location.href = "/telas/mapa/mapa.html";
+		const rotaInicial = usuarioLogado.primeiro_acesso
+			? "/telas/primeiro-acesso/primeiro-acesso.html"
+			: "/telas/mapa/mapa.html";
+		window.location.href = rotaInicial;
 		return;
 	}
 
@@ -89,7 +92,12 @@ botaoGoogle.addEventListener("click", async () => {
 
 		localStorage.setItem("usuarioLogado", JSON.stringify(usuarioComFoto));
 		statusLogin.innerText = "Login realizado com sucesso!";
-		window.location.href = "/telas/mapa/mapa.html";
+
+		const rotaPosLogin = usuarioComFoto.primeiro_acesso
+			? "/telas/primeiro-acesso/primeiro-acesso.html"
+			: "/telas/mapa/mapa.html";
+
+		window.location.href = rotaPosLogin;
 	} catch (erro) {
 		console.error("❌ Erro no login Google:", erro);
 		statusLogin.innerText = `Erro no login: ${obterMensagemAmigavelErroLogin(erro)}`;

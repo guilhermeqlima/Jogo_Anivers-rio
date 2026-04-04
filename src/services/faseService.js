@@ -5,8 +5,17 @@ const {
 } = require("./usuarioService");
 
 function dataLiberada(dataLiberacao) {
+	if (!dataLiberacao) {
+		return true;
+	}
+
 	const hoje = new Date();
 	const dataDaFase = new Date(`${dataLiberacao}T00:00:00`);
+
+	if (Number.isNaN(dataDaFase.getTime())) {
+		return true;
+	}
+
 	const liberada = hoje >= dataDaFase;
 	return liberada;
 }
@@ -25,11 +34,12 @@ async function obterFasesDoUsuario(email) {
 	const fases = obterFasesOrdenadas();
 
 	const fasesComStatus = fases.map((fase) => {
+		const faseFinal = fase.numero === fases.length;
 		const faseAnteriorConcluida = fase.numero === 1 || ultimaFaseConcluida >= fase.numero - 1;
 		const todasAsAnterioresConcluidas = fase.numero === 1 || ultimaFaseConcluida >= (fases.length - 1);
-		const liberadaPorData = dataLiberada(fase.dataLiberacao);
-		const desbloqueada = fase.numero === 7
-			? todasAsAnterioresConcluidas && liberadaPorData
+		const liberadaPorData = faseFinal ? true : dataLiberada(fase.dataLiberacao);
+		const desbloqueada = faseFinal
+			? todasAsAnterioresConcluidas
 			: faseAnteriorConcluida && liberadaPorData;
 		const concluida = ultimaFaseConcluida >= fase.numero;
 

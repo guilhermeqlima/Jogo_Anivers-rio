@@ -5,7 +5,7 @@ const fases = [
 	{ numero: 4, nome: "Fase 4", dataLiberacao: "2026-03-24", rota: "../fase4/fase4.html" },
 	{ numero: 5, nome: "Fase 5", dataLiberacao: "2026-03-24", rota: "../fase5/fase5.html" },
 	{ numero: 6, nome: "Fase 6 - Aniversario", dataLiberacao: "2026-04-11", rota: "../fase6/fase6.html" },
-	{ numero: 7, nome: "Fase 7 - Tesouro Final", dataLiberacao: "2026-04-11", rota: "../fase7/fase7.html" },
+	{ numero: 7, nome: "Fase 7 - Tesouro Final", dataLiberacao: null, rota: "../fase7/fase7.html" },
 ];
 
 function obterFasesOrdenadas() {

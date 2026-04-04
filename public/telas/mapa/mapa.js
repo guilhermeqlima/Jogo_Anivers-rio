@@ -11,6 +11,11 @@ window.onload = async function () {
         return;
     }
 
+    if (usuarioLogado.primeiro_acesso) {
+        window.location.href = "/telas/primeiro-acesso/primeiro-acesso.html";
+        return;
+    }
+
     configurarBotaoSair();
     renderizarMapaCarregando();
 
@@ -97,11 +102,6 @@ function preencherDadosDoPerfil(usuario, faseAtualAtual) {
 function obterConjuntoMedalhasConquistadas() {
     const medalhas = new Set();
 
-    if (typeof window.listarMedalhasConquistadas === "function" && usuarioLogado?.email) {
-        const medalhasSalvas = window.listarMedalhasConquistadas(usuarioLogado.email);
-        medalhasSalvas.forEach((numeroFase) => medalhas.add(Number(numeroFase)));
-    }
-
     fasesCarregadas.forEach((fase, indice) => {
         if (fase?.concluida) {
             medalhas.add(indice + 1);
@@ -145,6 +145,7 @@ function renderizarMedalhasNoPerfil() {
 function carregarMapa() {
     const mapa = document.getElementById("mapa");
     mapa.innerHTML = "";
+    const medalhasConquistadas = obterConjuntoMedalhasConquistadas();
 
     let mensagem = ` 
         <div class="decoracao-mapa decoracao-esquerda decoracao-image5" aria-hidden="true">
@@ -173,7 +174,7 @@ function carregarMapa() {
     const numeroFase = index + 1;
     const classeAniversario = numeroFase === 6 ? " fase-aniversario" : "";
     const classeFinal = numeroFase === 7 ? " fase-final" : "";
-    const orbitasMedalhas = numeroFase === 7 ? criarOrbitasMedalhasDaFaseFinal() : "";
+     const orbitasMedalhas = numeroFase === 7 ? criarOrbitasMedalhasDaFaseFinal(medalhasConquistadas) : "";
 
     if (fase.desbloqueada) {
         const classeFase = fase.concluida ? "fase concluida" : "fase disponivel";
@@ -197,11 +198,17 @@ function carregarMapa() {
     });
 }
 
-function criarOrbitasMedalhasDaFaseFinal() {
+function criarOrbitasMedalhasDaFaseFinal(medalhasConquistadas) {
     const icones = ["🔐", "🌹", "🤝", "📚", "🧩", "🎂"];
+    const conjunto = medalhasConquistadas instanceof Set ? medalhasConquistadas : new Set();
 
     const medalhas = icones
-        .map((icone, indice) => `<span class="medalha-orbita" data-posicao="${indice + 1}" aria-hidden="true">${icone}</span>`)
+        .map((icone, indice) => {
+            const numeroFaseMedalha = indice + 1;
+            const coletada = conjunto.has(numeroFaseMedalha);
+            const classeStatus = coletada ? "medalha-orbita--coletada" : "medalha-orbita--nao-coletada";
+            return `<span class="medalha-orbita ${classeStatus}" data-posicao="${indice + 1}" aria-hidden="true">${icone}</span>`;
+        })
         .join("");
 
     return `<div class="fase-medalhas-orbita" aria-hidden="true">${medalhas}</div>`;

@@ -45,13 +45,41 @@ async function criarOuAtualizarUsuario({ nome, email, fotoUrl }) {
 
 	if (!documentoAtual.exists) {
 		payload.ultimaFaseConcluida = 0;
+		payload.primeiro_acesso = true;
 		payload.createdAt = admin.firestore.FieldValue.serverTimestamp();
+	} else {
+		const dadosAtuais = documentoAtual.data() || {};
+		if (typeof dadosAtuais.primeiro_acesso !== "boolean") {
+			payload.primeiro_acesso = false;
+		}
 	}
 
 	await referenciaUsuario.set(payload, { merge: true });
 
 	const documentoFinal = await referenciaUsuario.get();
 	return { id: documentoFinal.id, ...documentoFinal.data() };
+}
+
+async function concluirPrimeiroAcesso(email) {
+	const emailNormalizado = normalizarEmail(email);
+
+	if (!emailNormalizado) {
+		throw new Error("E-mail é obrigatório.");
+	}
+
+	const db = obterFirestore();
+	const referenciaUsuario = db.collection(NOME_COLECAO_USUARIOS).doc(emailNormalizado);
+
+	await referenciaUsuario.set(
+		{
+			primeiro_acesso: false,
+			updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+		},
+		{ merge: true }
+	);
+
+	const documentoAtualizado = await referenciaUsuario.get();
+	return { id: documentoAtualizado.id, ...documentoAtualizado.data() };
 }
 
 async function atualizarUltimaFaseConcluida(email, ultimaFaseConcluida) {
@@ -80,4 +108,5 @@ module.exports = {
 	buscarUsuarioPorEmail,
 	criarOuAtualizarUsuario,
 	atualizarUltimaFaseConcluida,
+	concluirPrimeiroAcesso,
 };
