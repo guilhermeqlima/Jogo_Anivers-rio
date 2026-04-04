@@ -82,8 +82,12 @@ botaoGoogle.addEventListener("click", async () => {
 			fotoUrl: usuarioGoogle.photoURL || "",
 		};
 		const resposta = await window.fetchPost("/api/usuarios/login", payload);
+		const usuarioComFoto = {
+			...(resposta.usuario || {}),
+			fotoUrl: payload.fotoUrl,
+		};
 
-		localStorage.setItem("usuarioLogado", JSON.stringify(resposta.usuario));
+		localStorage.setItem("usuarioLogado", JSON.stringify(usuarioComFoto));
 		statusLogin.innerText = "Login realizado com sucesso!";
 		window.location.href = "/telas/mapa/mapa.html";
 	} catch (erro) {

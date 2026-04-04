@@ -53,6 +53,12 @@ function configurarBotaoSair() {
 async function carregarFases() {
     try {
         const dados = await fetchGet(`/api/fases/${encodeURIComponent(usuarioLogado.email)}`);
+
+        usuarioLogado = {
+            ...(usuarioLogado || {}),
+            ...(dados.usuario || {}),
+        };
+        localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
         
         fasesCarregadas = dados.fases || [];
         faseAtual = dados.faseAtual || 1;
@@ -85,6 +91,55 @@ function preencherDadosDoPerfil(usuario, faseAtualAtual) {
     }
 
     faseUsuario.innerText = `Fase ${faseAtualAtual} de ${fasesCarregadas.length}`;
+    renderizarMedalhasNoPerfil();
+}
+
+function obterConjuntoMedalhasConquistadas() {
+    const medalhas = new Set();
+
+    if (typeof window.listarMedalhasConquistadas === "function" && usuarioLogado?.email) {
+        const medalhasSalvas = window.listarMedalhasConquistadas(usuarioLogado.email);
+        medalhasSalvas.forEach((numeroFase) => medalhas.add(Number(numeroFase)));
+    }
+
+    fasesCarregadas.forEach((fase, indice) => {
+        if (fase?.concluida) {
+            medalhas.add(indice + 1);
+        }
+    });
+
+    return medalhas;
+}
+
+function renderizarMedalhasNoPerfil() {
+    const container = document.getElementById("medalhasPerfil");
+    if (!container) return;
+
+    const configuracao = typeof window.obterConfiguracaoMedalhas === "function"
+        ? window.obterConfiguracaoMedalhas()
+        : [
+            { numero: 1, icone: "🔐", nome: "Fase 1" },
+            { numero: 2, icone: "🌹", nome: "Fase 2" },
+            { numero: 3, icone: "🤝", nome: "Fase 3" },
+            { numero: 4, icone: "📚", nome: "Fase 4" },
+            { numero: 5, icone: "🧩", nome: "Fase 5" },
+            { numero: 6, icone: "🎂", nome: "Fase 6" },
+            { numero: 7, icone: "👑", nome: "Fase 7" },
+        ];
+
+    const medalhasConquistadas = obterConjuntoMedalhasConquistadas();
+
+    container.innerHTML = configuracao
+        .map((medalha) => {
+            const desbloqueada = medalhasConquistadas.has(Number(medalha.numero));
+            const classe = desbloqueada ? "desbloqueada" : "bloqueada";
+            const titulo = desbloqueada
+                ? `${medalha.nome} conquistada`
+                : `${medalha.nome} bloqueada`;
+
+            return `<span class="medalha-fase ${classe}" title="${titulo}" aria-label="${titulo}">${medalha.icone}</span>`;
+        })
+        .join("");
 }
 
 function carregarMapa() {
@@ -117,11 +172,13 @@ function carregarMapa() {
  mensagem += fasesCarregadas.map((fase, index) => {
     const numeroFase = index + 1;
     const classeAniversario = numeroFase === 6 ? " fase-aniversario" : "";
+    const classeFinal = numeroFase === 7 ? " fase-final" : "";
+    const orbitasMedalhas = numeroFase === 7 ? criarOrbitasMedalhasDaFaseFinal() : "";
 
     if (fase.desbloqueada) {
         const classeFase = fase.concluida ? "fase concluida" : "fase disponivel";
         const icone = fase.concluida ? "✅" : "🎁";
-        return `<div class="${classeFase}${classeAniversario}" id="fase${numeroFase}" onclick="abrirFase(${numeroFase})" title="Fase ${numeroFase}"><span>${icone}</span><span class="fase-numero">F${numeroFase}</span></div>`;
+        return `<div class="${classeFase}${classeAniversario}${classeFinal}" id="fase${numeroFase}" onclick="abrirFase(${numeroFase})" title="Fase ${numeroFase}">${orbitasMedalhas}<span>${icone}</span><span class="fase-numero">F${numeroFase}</span></div>`;
     }
 
     const bloqueadaPorTempo = fase.liberadaPorData === false;
@@ -129,7 +186,7 @@ function carregarMapa() {
     const iconeBloqueio = bloqueadaPorTempo ? "⏳" : "🔒";
     const tituloBloqueio = bloqueadaPorTempo ? "Bloqueada por tempo" : "Bloqueada por ordem";
 
-    return `<div class="fase bloqueada ${classeBloqueio}${classeAniversario}" id="fase${numeroFase}" title="Fase ${numeroFase} - ${tituloBloqueio}"><span>${iconeBloqueio}</span><span class="fase-numero">F${numeroFase}</span></div>`;
+    return `<div class="fase bloqueada ${classeBloqueio}${classeAniversario}${classeFinal}" id="fase${numeroFase}" title="Fase ${numeroFase} - ${tituloBloqueio}">${orbitasMedalhas}<span>${iconeBloqueio}</span><span class="fase-numero">F${numeroFase}</span></div>`;
 }).join("");
 
     mapa.innerHTML = mensagem;
@@ -138,6 +195,16 @@ function carregarMapa() {
         desenharLinha();
         posicionarPersonagemFaseAtual();
     });
+}
+
+function criarOrbitasMedalhasDaFaseFinal() {
+    const icones = ["🔐", "🌹", "🤝", "📚", "🧩", "🎂"];
+
+    const medalhas = icones
+        .map((icone, indice) => `<span class="medalha-orbita" data-posicao="${indice + 1}" aria-hidden="true">${icone}</span>`)
+        .join("");
+
+    return `<div class="fase-medalhas-orbita" aria-hidden="true">${medalhas}</div>`;
 }
 
 function obterNumeroFaseAtualVisual() {

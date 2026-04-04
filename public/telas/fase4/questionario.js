@@ -165,10 +165,7 @@ async function finalizarQuiz() {
 
   if (totalDeAcertos >= minimoDeAcertosParaConcluir) {
     await concluirFase4NoServidor();
-    await mostrarSucesso(
-      `Voce acertou ${totalDeAcertos}/${perguntasQuizLivros.length} e concluiu a Fase 4!`,
-      "Parabens"
-    );
+    await celebrarConclusaoDaFase(4);
     window.location.href = "../mapa/mapa.html";
     return;
   }
@@ -196,6 +193,7 @@ async function concluirFase4NoServidor() {
     await fetchPost(`/api/fases/${encodeURIComponent(usuario.email)}/concluir`, {
       numeroFase: 4,
     });
+    registrarConclusaoDeFase(4, usuario.email);
   } catch (erro) {
     console.error("Erro ao concluir fase 4:", erro);
     throw erro;

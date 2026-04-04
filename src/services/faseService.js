@@ -26,8 +26,11 @@ async function obterFasesDoUsuario(email) {
 
 	const fasesComStatus = fases.map((fase) => {
 		const faseAnteriorConcluida = fase.numero === 1 || ultimaFaseConcluida >= fase.numero - 1;
+		const todasAsAnterioresConcluidas = fase.numero === 1 || ultimaFaseConcluida >= (fases.length - 1);
 		const liberadaPorData = dataLiberada(fase.dataLiberacao);
-		const desbloqueada = faseAnteriorConcluida && liberadaPorData;
+		const desbloqueada = fase.numero === 7
+			? todasAsAnterioresConcluidas && liberadaPorData
+			: faseAnteriorConcluida && liberadaPorData;
 		const concluida = ultimaFaseConcluida >= fase.numero;
 
 		const status = concluida ? "✅ Concluída" : desbloqueada ? "🔓 Desbloqueada" : "🔒 Bloqueada";

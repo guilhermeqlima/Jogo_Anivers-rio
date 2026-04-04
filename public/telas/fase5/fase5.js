@@ -374,7 +374,8 @@ async function concluirFase5() {
       numeroFase: 5,
     });
 
-    await mostrarSucesso("Fase 5 concluida com sucesso!", "Parabens");
+    registrarConclusaoDeFase(5, usuario.email);
+    await celebrarConclusaoDaFase(5);
     window.location.href = "../mapa/mapa.html";
   } catch (erro) {
     statusEl.textContent = "Nao foi possivel concluir agora.";

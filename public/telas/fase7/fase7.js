@@ -9,15 +9,15 @@ botaoConcluir.addEventListener("click", async () => {
 
   try {
     await fetchPost(`/api/fases/${encodeURIComponent(usuario.email)}/concluir`, {
-      numeroFase: 6,
+      numeroFase: 7,
     });
 
-    registrarConclusaoDeFase(6, usuario.email);
-    status.textContent = "Fase 6 concluida com sucesso!";
-    await celebrarConclusaoDaFase(6);
+    registrarConclusaoDeFase(7, usuario.email);
+    status.textContent = "Fase 7 concluida com sucesso!";
+    await celebrarConclusaoDaFase(7);
     window.location.href = "../mapa/mapa.html";
   } catch (erro) {
-    status.textContent = "Não foi possível concluir agora.";
+    status.textContent = "Nao foi possivel concluir agora.";
     botaoConcluir.disabled = false;
   }
 });

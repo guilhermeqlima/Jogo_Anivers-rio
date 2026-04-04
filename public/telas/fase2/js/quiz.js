@@ -193,7 +193,7 @@ async function finalizarQuiz() {
 
     if (numeroDeAcertos >= ACERTOS_MINIMOS_PARA_CONCLUIR) {
         await salvarConclusaoDaFase2();
-        await mostrarSucesso(`Parabéns! Você acertou ${numeroDeAcertos}/${perguntas.length} e concluiu a Fase 2!`, "Parabéns");
+        await celebrarConclusaoDaFase(2);
         window.location.href = "../mapa/mapa.html";
         return;
     }
@@ -223,6 +223,7 @@ async function salvarConclusaoDaFase2() {
             await fetchPost(`/api/fases/${encodeURIComponent(usuarioLogado.email)}/concluir`, {
                 numeroFase: 2
             });
+            registrarConclusaoDeFase(2, usuarioLogado.email);
         } catch (erro) {
             console.error("Não foi possível concluir fase no backend:", erro);
             throw erro;

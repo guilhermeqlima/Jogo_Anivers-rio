@@ -115,6 +115,8 @@ async function concluirFase3() {
   await fetchPost(`/api/fases/${encodeURIComponent(usuarioLogado.email)}/concluir`, {
     numeroFase: 3,
   });
+
+  registrarConclusaoDeFase(3, usuarioLogado.email);
 }
 
 async function conferirResposta(respostaSelecionada) {
@@ -141,7 +143,7 @@ async function conferirResposta(respostaSelecionada) {
       await concluirFase3();
       barraPreenchida.style.width = "100%";
       textoProgresso.innerText = `${historias.length} de ${historias.length}`;
-      await mostrarSucesso("Fase 3 concluída com sucesso! 🎉", "Parabéns");
+      await celebrarConclusaoDaFase(3);
       window.location.href = "../mapa/mapa.html";
       return;
     }

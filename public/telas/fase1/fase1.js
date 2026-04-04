@@ -1,4 +1,4 @@
-const SENHAS_VALIDAS_FASE_1 = ["rosa", "amor"];
+const SENHAS_VALIDAS_FASE_1 = ["parabens", "parabéns", "parabens", "parabens!", "parabéns!"];
 
 const inputSenha = document.getElementById("input-senha");
 const botaoMostrarSenha = document.getElementById("mostrarSenha");
@@ -24,7 +24,8 @@ botaoDesvendar.addEventListener("click", async () => {
 			numeroFase: 1,
 		});
 
-		await mostrarSucesso("Fase 1 concluída com sucesso! 🎉", "Parabéns");
+		registrarConclusaoDeFase(1, usuarioLogado.email);
+		await celebrarConclusaoDaFase(1);
 		window.location.href = "../mapa/mapa.html";
 	} catch (erro) {
 		await mostrarErro("Não foi possível concluir a fase agora.");

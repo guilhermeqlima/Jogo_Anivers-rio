@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fase 7</title>
+
+  <link rel="stylesheet" href="fase7.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../../assets/utils/funcoesPadroesTelas.js"></script>
+  <script src="../../assets/config/apiBaseUrl.js"></script>
+  <script src="../../assets/utils/requisicaoFetchPadrao.js"></script>
+</head>
+
+<body>
+
+  <button id="btn-voltar" onclick="voltarMapa()">Voltar ao Mapa</button>
+
+  <div id="container">
+
+    <div id="cabecalho">
+      <div id="icone">👑</div>
+      <h1>Fase 7 - Tesouro Final</h1>
+      <p>Parabens! Voce chegou na fase secreta por conquistar todas as medalhas anteriores.</p>
+    </div>
+
+    <div id="area-conteudo">
+      <p>O maior premio ja e seu: toda a jornada cumprida com amor.</p>
+      <p>Quando quiser, conclua para eternizar esse momento no mapa.</p>
+    </div>
+
+    <div id="area-acao">
+      <button id="btn-concluir">Concluir fase</button>
+      <p id="status"></p>
+    </div>
+  </div>
+
+  <script src="fase7.js"></script>
+
+</body>
+
+</html>
