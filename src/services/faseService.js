@@ -4,20 +4,36 @@ const {
 	atualizarUltimaFaseConcluida,
 } = require("./usuarioService");
 
+const FUSO_HORARIO_LIBERACAO = "America/Sao_Paulo";
+
+function obterDataAtualNoFusoHorario(fusoHorario) {
+	const agora = new Date();
+	const dataFormatada = new Intl.DateTimeFormat("en-CA", {
+		timeZone: fusoHorario,
+		year: "numeric",
+		month: "2-digit",
+		day: "2-digit",
+	}).format(agora);
+
+	return dataFormatada;
+}
+
 function dataLiberada(dataLiberacao) {
 	if (!dataLiberacao) {
 		return true;
 	}
 
-	const hoje = new Date();
-	const dataDaFase = new Date(`${dataLiberacao}T00:00:00`);
-
-	if (Number.isNaN(dataDaFase.getTime())) {
+	if (typeof dataLiberacao !== "string") {
 		return true;
 	}
 
-	const liberada = hoje >= dataDaFase;
-	return liberada;
+	const dataDaFase = dataLiberacao.slice(0, 10);
+	if (!/^\d{4}-\d{2}-\d{2}$/.test(dataDaFase)) {
+		return true;
+	}
+
+	const hojeNoFuso = obterDataAtualNoFusoHorario(FUSO_HORARIO_LIBERACAO);
+	return hojeNoFuso >= dataDaFase;
 }
 
 async function obterFasesDoUsuario(email) {
